@@ -1,0 +1,39 @@
+<html>
+<head>
+
+  <meta charset="utf-8"/>
+  <script src="../min.js"></script>
+
+</head>
+<body>
+
+  <div id="item-list-container" style="width: 250px; height: 545.1140px;">
+  </div>
+
+  <button id="item-list-container-add">add</button>
+  <button id="item-list-container-remove">remove</button>
+
+  <script>
+
+    var itemList = [];
+    for (var i = 0; i < 100000; i++)
+      itemList.push({name: 'item ' + i, bgColor: i % 2 == 0 ? 'LightStateGray': 'LightSteelBlue'});
+
+    maskrollController = makeMaskrollable('item-list-container', itemList, 24.158);
+
+    document.getElementById('item-list-container-add').onclick = function() {
+      maskrollController.addTo(3, [
+        {name: 'newItem 1', bgColor: 'Red'},
+        {name: 'newItem 2', bgColor: 'Red'},
+        {name: 'newItem 3', bgColor: 'Red'}
+      ]);
+    }
+
+    document.getElementById('item-list-container-remove').onclick = function() {
+      maskrollController.removeFrom(3, 3);
+    }
+
+  </script>
+
+</body>
+</html>

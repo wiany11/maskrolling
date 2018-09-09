@@ -2,10 +2,10 @@ function maskroll(itemList, itemHeight, mask, maskHeight, maskScrollTop) {
   mask.removeChild(mask.childNodes[1]);
   var container = mask.appendChild(document.createElement('div'));
 
-  var topHeight = maskScrollTop - (maskScrollTop % itemHeight);
+  var f = Math.floor(maskScrollTop / itemHeight);
+  var topHeight = maskScrollTop - (maskScrollTop - f * itemHeight);
   container.appendChild(document.createElement('div')).style.height = topHeight;
 
-  var f = topHeight / itemHeight;
   var i = -1;
   var listHeight = 0;
   while (true) {
